@@ -16,10 +16,10 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "Root",
-    database: "travelblog"
+    host: "vlogblog.cybehe0dswf6.us-east-1.rds.amazonaws.com",
+    user: "admin",
+    password: "MilanIsBrons69",
+    database: "vlogblog"
 
 })
 
@@ -144,6 +144,6 @@ app.post("/api/setheaders", (req, res) => {
 
 module.exports = app;
 
-app.listen(3001, () => {
-    console.log("running on port 3001")
+app.listen(3000, () => {
+    console.log("running on port 3000")
 })
