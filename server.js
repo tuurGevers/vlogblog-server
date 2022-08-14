@@ -8,7 +8,7 @@ const upload = multer({dest: 'images/'})
 
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://127.0.0.1:3000',
     credentials: true,
     optionSuccessStatus: 200
 }))
@@ -144,6 +144,6 @@ app.post("/api/setheaders", (req, res) => {
 
 module.exports = app;
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("running on port 3000")
 })
