@@ -8,11 +8,8 @@ const upload = multer({dest: 'images/'})
 
 
 app.use(cors({
-    withCredentials: false,
-    optionSuccessStatus: 200,
-    AccessControlAllowOrigin: "https://bnbserver.herokuapp.com/"
-
-}))
+    origin: '*'
+}));
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
