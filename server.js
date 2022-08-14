@@ -7,6 +7,13 @@ const multer = require('multer')
 const upload = multer({dest: 'images/'})
 
 
+app.use(cors({
+    origin: 'http://127.0.0.1:3000',
+    withCredentials: true,
+    optionSuccessStatus: 200,
+    AccessControlAllowOrigin: "*"
+
+}))
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
