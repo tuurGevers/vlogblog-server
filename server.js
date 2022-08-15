@@ -8,7 +8,7 @@ const upload = multer({dest: 'images/'})
 
 
 app.use(cors({
-    origin: 'https://bnbserver.herokuapp.com/*'
+    origin: 'https://bnbtravelers.netlify.app/'
 }));
 
 app.use(express.json())
