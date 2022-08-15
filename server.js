@@ -23,6 +23,14 @@ const db = mysql.createPool({
 
 })
 
+app.get('/*',  (req, res) => {
+    res.sendFile('https://bnbtravelers.netlify.app'), (err) => {
+        if (err) {
+            res.status(500).send(err)
+        }
+    }
+})
+
 app.get("/api/getheaders", (req, res) => {
     const sqlSelect = "SELECT * FROM reizen"
     db.query(sqlSelect, (err, result) => {
@@ -123,7 +131,7 @@ app.post("/api/uploadheader", (req, res) => {
 
     const sqlInsert = `INSERT INTO headers (reisID, headerIMG) VALUES (?, ?);`
 
-    db.query(sqlInsert, [reisID,foto], (err, result) => {
+    db.query(sqlInsert, [reisID, foto], (err, result) => {
         console.log(err, result)
     })
 
