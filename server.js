@@ -23,7 +23,10 @@ const db = mysql.createPool({
 
 })
 
-app.use('/', express.static("https://bnbtravelers.netlify.app/index.html"));
+app.use('/', express.static("https://bnbtravelers.netlify.app"));
+app.use(function (req, res, next) {
+    res.sendFile("https://bnbtravelers.netlify.app/index.htmlindex.html");
+});
 
 app.get("/api/getheaders", (req, res) => {
     const sqlSelect = "SELECT * FROM reizen"
