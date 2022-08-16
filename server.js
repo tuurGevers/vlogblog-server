@@ -47,7 +47,7 @@ app.post("/api/setquote", (req, res) => {
     const tekstEN = req.body.tekstEN
     const tekstES = req.body.tekstES
 
-    const sqlAlter = `UPDATE quote SET titelNL = ?,titelES = ?,titelEN = ?, tekstNL= ?, tekstES= ?,tekstEN= ?, WHERE id = 1;
+    const sqlAlter = `UPDATE quote SET titelNL = ?,titelES = ?,titelEN = ?, tekstNL= ?, tekstES= ?,tekstEN= ? WHERE id = 1;
 `
     db.query(sqlAlter, [titelNL,titelES,titelEN, tekstNL, tekstES, tekstEN], (err, result) => {
         res.send(err)
