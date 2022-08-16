@@ -40,12 +40,16 @@ app.get("/api/getquote", (req, res) => {
 })
 
 app.post("/api/setquote", (req, res) => {
-    const titel = req.body.titel;
-    const tekst = req.body.tektst;
+    const titelNL = req.body.titelNL
+    const titelEN = req.body.titelEN
+    const titelES = req.body.titelES
+    const tekstNL = req.body.tekstNL
+    const tekstEN = req.body.tekstEN
+    const tekstES = req.body.tekstES
 
-    const sqlAlter = `UPDATE quote SET titel = ?, tekst= ? WHERE id = 1;
+    const sqlAlter = `UPDATE quote SET titelNL = ?,titelES = ?,titelEN = ?, tekstNL= ?, tekstES= ?,tekstEN= ?, WHERE id = 1;
 `
-    db.query(sqlAlter, [titel,tekst], (err, result) => {
+    db.query(sqlAlter, [titelNL,titelES,titelEN, tekstNL, tekstES, tekstEN], (err, result) => {
         res.status(200)
     })
 })
