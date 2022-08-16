@@ -31,6 +31,25 @@ app.get("/api/getheaders", (req, res) => {
 
 })
 
+app.get("/api/getquote", (req, res) => {
+    const sqlSelect = "SELECT * FROM quote where id=1"
+    db.query(sqlSelect, (err, result) => {
+        res.send(result)
+    })
+
+})
+
+app.post("/api/setquote", (req, res) => {
+    const titel = req.body.titel;
+    const tekst = req.body.tektst;
+
+    const sqlAlter = `UPDATE quote SET titel = ?, tekst= ? WHERE id = 1;
+`
+    db.query(sqlAlter, [titel,tekst], (err, result) => {
+        res.status(200)
+    })
+})
+
 app.get("/api/getheader/:id", (req, res) => {
     const id = req.params.id
     const sqlSelect = "SELECT * FROM reizen where reisID=?"
