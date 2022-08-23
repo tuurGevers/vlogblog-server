@@ -10,6 +10,8 @@ const upload = multer({dest: 'images/'})
 app.use(cors({
     origin: 'https://www.bnbtravelers.be',
     credentials: true,
+    AccessControlAllowOrigin: 'https://www.bnbtravelers.be',
+    AccessControlAllowCredentials: true
 }));
 
 app.use(express.json())
